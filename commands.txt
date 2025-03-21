@@ -1,0 +1,18 @@
+cd backend
+python manage.py makemigrations crm
+python manage.py migrate
+python manage.py runserver
+
+cd backend
+python manage.py runserver
+
+cd backend
+celery -A soteria worker -P solo --loglevel=info
+
+cd backend
+celery -A soteria worker -P prefork --loglevel=info
+
+cd backend
+celery -A soteria worker -P eventlet --loglevel=info
+
+curl -X POST -F "cv_files=@C:\Users\Jamie\Downloads\prisque.pdf" -F "cv_files=@C:\Users\Jamie\Downloads\Ayesha CV 2025 1.pdf" -F "cv_files=@C:\Users\Jamie\Downloads\JayneSmith.pdf" http://127.0.0.1:8000/trigger_candidate_from_cv/

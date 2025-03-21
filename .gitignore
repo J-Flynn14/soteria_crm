@@ -1,0 +1,5 @@
+/.venv
+/backend/documents/
+/backend/documents/orphaned_files/
+/.env
+/crm_key.pem
